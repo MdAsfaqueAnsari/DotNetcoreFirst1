@@ -1,0 +1,63 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+@using Microsoft.AspNetCore.Http
+@inject Microsoft.AspNetCore.Http.IHttpContextAccessor HttpContextAccessor
+
+
+
+<h1>===========This Is ViewBag========== </h1>
+<h3>@ViewBag.Test</h3>
+<h3>@ViewBag.Test1</h3>
+<h3>@ViewBag.Test2</h3>
+<h3>@ViewBag.Test3</h3>
+
+<ul>
+    @foreach (var item in ViewBag.Test4)
+    {
+        <li>@item</li>
+    }
+
+</ul>
+
+
+<h1>=====This Is ViewData======</h1>
+<h2>@ViewData["A"]</h2>
+<h2>@ViewData["B"]</h2>
+<h2>@ViewData["C"]</h2>
+<h2>@ViewData["D"]</h2>
+
+<ul>
+  @foreach (var item in (List<int>)ViewData["E"])
+    {
+        <li>@item</li>
+    }
+
+</ul>
+
+
+<h1>=====This Is TempData======</h1>
+<h3>@TempData["1"]</h3>
+<h3>@TempData["2"]</h3>
+<h3>@TempData["3"]</h3>
+<h3>@TempData["4"]</h3>
+<ul>
+
+    @foreach (var item in (List<char>)TempData["5"])
+    {
+        <li>@item</li>
+    }
+
+</ul>
+
+<h1>=====This is session====</h1>
+
+<h3>@HttpContextAccessor.HttpContext.Session.GetString("Sess")</h3>
+<h3>@HttpContextAccessor.HttpContext.Session.GetString("Sess1")</h3>
+
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
